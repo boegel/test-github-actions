@@ -5,19 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: install dependencies
-      run: pip install PyGithub
+      run: |
+        pip install PyGithub
+        pip install git+https://github.com/boegel/github-actions.git
     - name: react to comment
       shell: python
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         # collect event data
-        import json, os, pprint
-        event_path = os.environ['GITHUB_EVENT_PATH']
-        print(event_path)
-        fp = open(event_path)
-        print(fp.read())
-        event_data = json.load(fp)
+        from actions import get_event_data
+        event_data = get_event_data()
         pprint.pprint(event_data)
         
         # print comment body
