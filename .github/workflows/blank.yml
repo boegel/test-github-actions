@@ -23,7 +23,7 @@ jobs:
         # reply to comment
         token = os.environ['GITHUB_TOKEN']
         from github import Github
-        g = GitHub(token)
+        g = Github(token)
         
         repo_owner = event_data['repository']['owner']['login']
         repo_name = event_data['repository']['name']
