@@ -17,13 +17,11 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        import actions
-        import os, pprint
+        import actions, os
         
         # collect event data
         from actions import get_event_data
-        event_data = actions.get_event_data()
-        pprint.pprint(event_data)
+        event_data = actions.get_event_data(verbose=True)
         
         if actions.get_event_name() == 'issue_comment':
             # print comment body
