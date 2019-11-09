@@ -4,9 +4,12 @@ jobs:
   react-to-comment:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: print event data
+    - name: install dependencies
+      run: pip install PyGithub
+    - name: react to comment
       shell: python
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         # collect event data
         import json, os, pprint
@@ -16,3 +19,14 @@ jobs:
         
         # print comment body
         print(event_data['comment']['body'])
+        
+        # reply to comment
+        token = os.environ['GITHUB_TOKEN']
+        from github import Github
+        g = GitHub(token)
+        
+        repo_owner = event_data['repository']['owner']['login']
+        repo_name = event_data['repository']['name']
+        repo = g.get_repo(repo_owner + '/' + repo_name
+        
+        print(repo.get_issue(number=event_data['issue']['number']))
