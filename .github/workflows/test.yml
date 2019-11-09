@@ -11,7 +11,7 @@ jobs:
     - name: install dependencies
       run: |
         pip install PyGithub
-        pip install git+https://github.com/boegel/github-actions.git
+        pip install git+https://github.com/boegel/py-github-actions.git
     - name: react to comment
       shell: python
       env:
