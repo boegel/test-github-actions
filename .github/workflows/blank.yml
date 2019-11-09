@@ -13,6 +13,8 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        import pprint
+        
         # collect event data
         from actions import get_event_data
         event_data = get_event_data()
