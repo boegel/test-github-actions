@@ -23,7 +23,7 @@ jobs:
         from actions import get_event_data
         event_data = actions.get_event_data(verbose=True)
         
-        if actions.get_event_name() == 'issue_comment':
+        if actions.get_event_trigger().startswith('issue_comment.'):
             # print comment body
             print(event_data['comment']['body'])
         
