@@ -21,7 +21,7 @@ jobs:
         from actions.event import get_event_data, triggered_by
         
         # collect event data
-        event_data = actions.get_event_data(verbose=True)
+        event_data = get_event_data(verbose=True)
         
         if triggered_by('issue_comment'):
             # reply to comment
