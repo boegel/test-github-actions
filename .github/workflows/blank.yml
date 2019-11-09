@@ -1,18 +1,18 @@
-name: CI
-
+name: test
 on: [issue_comment]
-
 jobs:
-  build:
-
+  react-to-comment:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: print event data
       shell: python
       run: |
+        # collect event data
         import json, os, pprint
         event_path = os.environ['GITHUB_EVENT_PATH']
         event_data = json.load(open(event_path))
         pprint.pprint(event_data)
+        
+        # print comment body
+        print(event_data['comment']['body'])
