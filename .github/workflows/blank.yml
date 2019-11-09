@@ -14,7 +14,10 @@ jobs:
         # collect event data
         import json, os, pprint
         event_path = os.environ['GITHUB_EVENT_PATH']
-        event_data = json.load(open(event_path))
+        print(event_path)
+        fp = open(event_path)
+        print(fp.read())
+        event_data = json.load(fp)
         pprint.pprint(event_data)
         
         # print comment body
