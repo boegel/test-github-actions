@@ -36,5 +36,5 @@ jobs:
             issue = repo.get_issue(number=event_data['issue']['number'])
             sender = event_data['sender']['login']
             comment_txt = event_data['comment']['body']
-            reply_txt = "Thank you for your comment '%s' @%s!" % (comment_txt, sender)
+            reply_txt = "@%s: Thank you for your comment '%s'!" % (sender, comment_txt)
             issue.create_comment(reply_txt)
