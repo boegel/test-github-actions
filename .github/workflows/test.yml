@@ -18,10 +18,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         import os
-        from actions.event import triggered_by
+        from actions.event import get_event_data, triggered_by
         
         # collect event data
-        from actions import get_event_data
         event_data = actions.get_event_data(verbose=True)
         
         if triggered_by('issue_comment'):
