@@ -27,6 +27,6 @@ jobs:
         
         repo_owner = event_data['repository']['owner']['login']
         repo_name = event_data['repository']['name']
-        repo = g.get_repo(repo_owner + '/' + repo_name
+        repo = g.get_repo(repo_owner + '/' + repo_name)
         
         print(repo.get_issue(number=event_data['issue']['number']))
