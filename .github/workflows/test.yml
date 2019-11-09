@@ -17,13 +17,14 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        import actions, os
+        import os
+        from actions.event import triggered_by
         
         # collect event data
         from actions import get_event_data
         event_data = actions.get_event_data(verbose=True)
         
-        if actions.get_event_trigger().startswith('issue_comment.'):        
+        if triggered_by('issue_comment'):
             # reply to comment
             token = os.environ['GITHUB_TOKEN']
             from github import Github
