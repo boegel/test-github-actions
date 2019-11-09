@@ -29,4 +29,5 @@ jobs:
         repo_name = event_data['repository']['name']
         repo = g.get_repo(repo_owner + '/' + repo_name)
         
-        print(repo.get_issue(number=event_data['issue']['number']))
+        issue = repo.get_issue(number=event_data['issue']['number'])
+        issue.create_comment("Thank you for your comment @%s!" % event_data['sender']['login'])
