@@ -1,5 +1,7 @@
 name: test
 on:
+  check_run:
+    types: [completed]
   check_suite:
     types: [completed]
   issue_comment:
@@ -8,6 +10,7 @@ on:
     types: [milestoned]
   pull_request:
     types: [labeled]
+  status:
 jobs:
   react-to-comment:
     runs-on: ubuntu-latest
