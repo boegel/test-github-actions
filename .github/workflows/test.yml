@@ -27,7 +27,7 @@ jobs:
         
         print('comments:\n' + '\n'.join(get_issue_comments()))
         print('labels: ' + ', '.join(get_label_names()))
-        print('milestone' ' + get_milestone_title())
+        print('milestone ' + get_milestone_title())
         if pr_context():
           print('PR status: ' + get_pr_status())
         
