@@ -1,12 +1,5 @@
 name: test
-on:
-  status:
-  issue_comment:
-    types: [created]
-  issues:
-    types: [milestoned]
-  pull_request:
-    types: [labeled]
+on: status
 jobs:
   react-to-comment:
     runs-on: ubuntu-latest
