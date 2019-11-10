@@ -19,7 +19,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        from actions.event import get_event_data
+        from actions.event import get_event_data, triggered_by
         from actions.issues import *
         
         # print event data (just for debugging purposes)
