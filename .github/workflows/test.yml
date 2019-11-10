@@ -31,5 +31,6 @@ jobs:
         if pr_context():
           print('PR status: ' + get_pr_status())
         
-        reply_txt = "@%(sender_login)s: Thank you for your comment '%(comment_body)s'!"
-        post_comment(reply_txt)
+        if triggered_by('issue_comment'):
+          reply_txt = "@%(sender_login)s: Thank you for your comment '%(comment_body)s'!"
+          post_comment(reply_txt)
