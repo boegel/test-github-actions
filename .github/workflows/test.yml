@@ -1,6 +1,6 @@
 name: test
 on:
-  status
+  status:
   issue_comment:
     types: [created]
   issues:
