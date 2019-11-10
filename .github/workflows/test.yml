@@ -20,17 +20,16 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         from actions.event import get_event_data
-        from actions.issues import get_issue_comments, get_label_names, get_pr_status, post_comment
+        from actions.issues import get_issue_comments, get_label_names, get_pr_status, post_comment, pr_context
         
         # print event data (just for debugging purposes)
         event_data = get_event_data(verbose=True)
         
         print('comments:\n' + '\n'.join(get_issue_comments()))
         print('labels: ' + ', '.join(get_label_names()))
-        try:
+        print('milestone' ' + get_milestone_title())
+        if pr_context():
           print('PR status: ' + get_pr_status())
-        except Exception as err:
-          print("get_pr_status failed: %s" % err)
         
         reply_txt = "@%(sender_login)s: Thank you for your comment '%(comment_body)s'!"
         post_comment(reply_txt)
