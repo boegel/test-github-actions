@@ -18,10 +18,13 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         from actions.event import get_event_data
-        from actions.issues import post_comment
+        from actions.issues import get_issue_comments, get_label_names, post_comment
         
         # print event data (just for debugging purposes)
         event_data = get_event_data(verbose=True)
+        
+        print('comments:\n' + '\n'.join(get_issue_comments()))
+        print('labels: ' + ', '.join(get_label_names()))
         
         reply_txt = "@%(sender_login)s: Thank you for your comment '%(comment_body)s'!"
         post_comment(reply_txt)
