@@ -20,10 +20,8 @@ jobs:
         from actions.event import get_event_data
         from actions.issues import post_comment
         
-        # collect event data
+        # print event data (just for debugging purposes)
         event_data = get_event_data(verbose=True)
         
-        sender = event_data['sender']['login']
-        comment_txt = event_data['comment']['body']
-        reply_txt = "@%s: Thank you for your comment '%s'!" % (sender, comment_txt)
+        reply_txt = "@%(sender_login)s: Thank you for your comment '%(comment_body)s'!"
         post_comment(reply_txt)
