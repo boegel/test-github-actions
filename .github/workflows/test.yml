@@ -10,7 +10,7 @@ on:
     types: [milestoned]
   pull_request:
     types: [labeled]
-  status:
+  status: {}
 jobs:
   react-to-comment:
     runs-on: ubuntu-latest
