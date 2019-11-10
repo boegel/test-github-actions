@@ -1,2 +1,6 @@
+import time
+
 def test():
-    assert(2 == 2)
+    for i in range(10):
+        assert(i == i)
+        time.sleep(1)
