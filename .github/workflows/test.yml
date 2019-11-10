@@ -20,7 +20,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         from actions.event import get_event_data
-        from actions.issues import get_issue_comments, get_label_names, get_pr_status, post_comment, pr_context
+        from actions.issues import *
         
         # print event data (just for debugging purposes)
         event_data = get_event_data(verbose=True)
